@@ -1,0 +1,146 @@
+/* assets/custom.css */
+
+/* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #2c3e50; /* Dark Slate Blue */
+    --secondary-color: #3498db; /* Bright Blue */
+    --accent-color: #e74c3c; /* Alizarin Crimson (for highlights like the vline) */
+    --light-bg-color: #ecf0f1; /* Clouds (very light grey) */
+    --text-color: #34495e; /* Wet Asphalt (dark grey for text) */
+    --border-color: #bdc3c7; /* Silver */
+    --white-color: #ffffff;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+body {
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern sans-serif */
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Header Styling --- */
+.app-header {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 25px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 300; /* Lighter font weight for a modern feel */
+    letter-spacing: 1px;
+}
+
+/* --- Main App Container --- */
+.app-container {
+    max-width: 1400px; /* Limit max width for better readability on large screens */
+    margin: 30px auto;
+    padding: 25px;
+    background-color: var(--white-color);
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+}
+
+/* --- Layout for Controls and Graph --- */
+.controls-and-graph-container {
+    display: flex; /* Use flexbox for sidebar and main content */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens if needed */
+    gap: 20px; /* Space between sidebar and graph */
+}
+
+/* --- Radio Items Styling (Sidebar) --- */
+.radio-item-container {
+    flex: 1; /* Allows sidebar to take up some space */
+    min-width: 220px; /* Minimum width for the sidebar */
+    max-width: 280px; /* Maximum width for the sidebar */
+    padding: 20px;
+    background-color: #f8f9fa; /* Slightly off-white for the sidebar */
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+}
+
+.radio-item-container .radio-items-label { /* Custom class for the "Select Region:" label */
+    font-weight: 600; /* Bolder */
+    font-size: 1.1em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* Styling for individual radio items (the dcc.RadioItems component itself) */
+.custom-radio-items label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.custom-radio-items input[type="radio"] {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Hover and checked states for radio items */
+.custom-radio-items label:hover {
+    background-color: #e9ecef;
+}
+
+/*
+   when the input is before the label text in Dash's default rendering.
+   Dash's default structure for RadioItems is roughly:
+   <div>
+     <label> <input type="radio"> Label Text </label>
+     <label> <input type="radio"> Label Text </label>
+   </div>
+   We can style the input itself if needed, or use JavaScript for more complex label styling on check.
+   For now, the hover effect provides some interactivity.
+*/
+
+
+/* --- Graph Container Styling --- */
+.graph-container {
+    flex: 3; /* Allows graph to take more space */
+    min-width: 300px; /* Ensure graph has some minimum width */
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--white-color); /* Keep graph area clean */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* --- Footer Styling --- */
+.app-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #6c757d; /* Muted text color */
+    font-size: 0.85em;
+    border-top: 1px solid #dee2e6;
+}
+
+/* --- Responsive adjustments (example) --- */
+@media (max-width: 768px) {
+    .controls-and-graph-container {
+        flex-direction: column; /* Stack sidebar and graph on smaller screens */
+    }
+    .radio-item-container, .graph-container {
+        max-width: 100%;
+        width: 100%;
+        float: none; /* Remove float if using flexbox */
+        padding-right: 0;
+    }
+    .app-header h1 {
+        font-size: 1.8em;
+    }
+}
