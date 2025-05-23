@@ -130,3 +130,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# ... (all the existing content) ...
+
+# Project-specific output
+output/
