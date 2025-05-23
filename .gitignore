@@ -132,7 +132,4 @@ dmypy.json
 .pyre/
 
 
-# ... (all the existing content) ...
 
-# Project-specific output
-output/
